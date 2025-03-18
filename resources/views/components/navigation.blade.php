@@ -1,6 +1,6 @@
 <header>
-    <nav>
-        <ul>
+    <nav class="navbar">
+        <ul class="route">
             <li><a href="/" >Sākums</a></li>
             <li><a href="/posts/create" >Izveidot blogu</a></li>
             <li><a href="/categories" >Kategorijas</a></li>

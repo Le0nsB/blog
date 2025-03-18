@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class PostController
@@ -15,7 +17,8 @@ class PostController
 
     public function create()
     {
-        return view("posts.create");
+        $categories = Category::all();
+        return view("posts.create", compact("categories"));
     }
 
     public function store(Request $request)
@@ -23,6 +26,7 @@ class PostController
         $validated = $request->validate([
             "content" => ["required", "max:255"],
             "category_id" => ["required"]
+            
           ]);          
         Post::create([
             "content" => $validated["content"],
@@ -32,6 +36,7 @@ class PostController
     }
     public function show(Post $post)
     {
+        $categories = Category::all();
         return view("posts.show", compact("post"));
     }
 
@@ -44,7 +49,7 @@ class PostController
     {
         $validated = $request->validate([
             "content" => ["required", "max:255"],
-            "category_id" => ["required"]
+            "category_id" => ["required"],
           ]); 
           $post->content = $validated["content"];
           $post->category_id = $validated["category_id"];

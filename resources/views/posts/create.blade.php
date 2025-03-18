@@ -5,7 +5,12 @@
     <form method="POST" action="/" class="create">
         @csrf
         <input name="content"/>
-        <input name="category_id"/>
+        <select name="category_id">
+        @foreach ($categories as $category)
+            <option value="{{$category->id}}">{{ $category->category_name }}</option>
+        @endforeach 
+        
+        </select>
         @error("content")
             <p>{{ $message }}</p>
         @enderror
