@@ -1,7 +1,7 @@
 <x-layout>
-    <ul>
+    <ul class="posts">
         @foreach ($categories as $category)
-            <li><a href="/categories/{{ $category->id }}">{{ $category->category_name }}</a></li>
+            <li><a class="post" href="/categories/{{ $category->id }}">{{ $category->category_name }}</a></li>
         @endforeach 
     </ul>
 </x-layout>

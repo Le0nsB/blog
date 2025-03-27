@@ -1,6 +1,6 @@
 <x-layout>
-    <x-slot:title>Izveidot uzdevumu</x-slot:title>
-    <h1>Izveidot uzdevumu</h1>
+    <x-slot:title>Izveidot kategoriju</x-slot:title>
+    <h1>Izveidot kategoriju</h1>
 
     <form method="POST" action="/categories" class="create">
         @csrf
